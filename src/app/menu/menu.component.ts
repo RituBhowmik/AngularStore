@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit {
 
   openDialog(): void {
     this.dialogRef = this.dialog.open(LoginComponent);
+
   }
 
   ngOnInit(): void {

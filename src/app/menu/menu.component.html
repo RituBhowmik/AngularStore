@@ -17,10 +17,10 @@
   <span>Welcome to Fashion</span>
   <span class="example-spacer"></span>
   <button mat-icon-button (click)="openDialog()" ><mat-icon>person</mat-icon></button>
-  <mat-spinner *ngIf="((loginService.loginStatus$| async) == 'loading')" diameter="20"></mat-spinner>
-  <button *ngIf="((loginService.loginStatus$| async) == 'true') " mat-button>{{loginService.username$|async}}</button>
+  <mat-spinner *ngIf="((loginService.loginStatus$| async)?.state == 'loading')" diameter="20"></mat-spinner>
+  <button *ngIf="((loginService.loginStatus$| async)?.state== 'loggedIn') " mat-button>{{(loginService.loginStatus$|async)?.username}}</button>
 
-  <button *ngIf="((loginService.loginStatus$| async) == 'false') " mat-button></button>
+  <button *ngIf="((loginService.loginStatus$| async)?.state == 'notLoggedIn') " mat-button></button>
 
 
 

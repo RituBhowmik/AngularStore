@@ -6,14 +6,21 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { LocalStorageService } from './local-storage.service';
 
+export type loginService$ = {
+  username: string;
+  state: string;
+};
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  public loginStatus$: BehaviorSubject<string> = new BehaviorSubject<string>(
-    'loading'
+  public loginStatus$: BehaviorSubject<loginService$> = new BehaviorSubject<loginService$>(
+    {
+      username: 'username',
+      state: 'loading'
+  }
   );
-  public username$: BehaviorSubject<string> = new BehaviorSubject('');
+
 
   myUsers: any;
 
@@ -31,9 +38,12 @@ export class LoginService {
       });
 
       if (this.user) {
-        this.user.loginStatus= 'true';
-        this.loginStatus$.next(this.user.loginStatus);
-        this.username$.next(this.user.name);
+        this.user.loginStatus= 'loggedIn';
+        this.loginStatus$.next({
+          username: this.user.name,
+          state: this.user.loginStatus,
+        });
+
 
         this.localStorageService.save(this.user.name, this.user.password, this.user.loginStatus );
         this.localStorageService.rememberUser(this.user);
@@ -47,22 +57,23 @@ export class LoginService {
   setUsername() {
     console.log(localStorage);
     if (localStorage.length == 0) {
-      this.username$.next('');
 
-      this.loginStatus$.next('false');
+
+      this.loginStatus$.next( { username:'',
+        state:'notLoggedIn'});
     } else {
 
       this.user = JSON.parse(localStorage['user']);
-      this.username$.next(this.user.name);
-      this.loginStatus$.next(this.user.loginStatus);
-      this.user.loginStatus= 'true';
-      this.loginStatus$.next('true');
+      this.user.loginStatus= 'loggedIn';
+      this.loginStatus$.next({ username:this.user.name,
+      state:this.user.loginStatus});
     }
   }
   logout(){
-    this.user.loginStatus= 'false';
-    this.loginStatus$.next('false');
-    this.username$.next('');
+    this.user.loginStatus= 'notLoggedIn';
+    this.loginStatus$.next({ username:'',
+    state:'notLoggedIn'});
+
     this.user=null;
     localStorage.clear();
 
