@@ -1,0 +1,38 @@
+
+.display{
+  height: auto;
+  width: 800px;
+  position: relative;
+  vertical-align: middle;
+  margin-top: 10px;
+  border: 20px solid salmon;
+
+}
+.grid{
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.heading{
+  font-size: xxx-large;
+
+  font-family: initial;
+}
+
+
+.Link{
+  text-decoration: unset;
+}
+.colorBox{
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0 4px;
+}
+

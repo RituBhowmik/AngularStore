@@ -1,0 +1,23 @@
+
+.mat-form-field {
+
+  min-width: 100px;
+  border-radius: 5%;
+  max-width: fit-content;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+
+}

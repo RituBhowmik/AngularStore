@@ -1,0 +1,19 @@
+
+<app-menu></app-menu>
+<body>
+ <div *ngIf="(wishService.wishLength$|async)==0"><img class=empCart type="image" aria-details="cart is empty" src="../assets/empty-cart.svg">
+  </div>
+<div *ngFor="let wish of wishlist, let i=index" class="grid">
+
+  <h1>{{ wish.name }}</h1>
+
+  <img class="display" type="image" [src]="wish.imageUrls[0]">
+  <h2>Price : {{wish.price}}€ </h2>
+  <h2>Colours : {{wish.colors[0]}}</h2>
+  <h2>Size: {{wish.sizes[0]}}</h2>
+	<button color="primary" [disabled]= 'disable' mat-raised-button (click)="add(wish)">Add to cart<mat-icon>add_shopping_cart</mat-icon></button>
+	<button color="warn" *ngIf="disable" mat-raised-button > Added to cart</button>
+
+
+</div>
+</body>

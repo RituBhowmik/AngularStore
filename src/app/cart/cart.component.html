@@ -1,0 +1,32 @@
+
+<app-menu></app-menu>
+
+<body>
+  <div *ngIf="(cartService.cartLength$|async)==0 "><img class=empCart type="image" aria-details="cart is empty" src="../assets/empty-cart.svg">
+  </div>
+  <div *ngIf="(cartService.cartLength$|async)!=0 ">
+<div *ngFor="let buyList of buyLists, let i=index" class="grid">
+
+  <h1>{{ buyList.name }}</h1>
+
+  <img class="display" type="image" [src]="buyList.imageUrls[0]">
+  <h2 >Price : {{buyList.price}}€ </h2>
+  <h2>Colours : {{buyList.colors[0]}}</h2>
+  <h2 >Size: {{buyList.sizes[0]}}</h2>
+
+
+</div>
+<p class=" checkout">Your cart amounts to {{cartService.cartTotal}}</p>
+<button mat-button class="checkout">Checkout</button>
+</div>
+</body>
+<!--
+#hmenu-canvas {
+  position: fixed;
+  background-color: #fff;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 4px 0 10px 0rgba(0,0,0,.4);
+  will-change: transform;
+}
+-->

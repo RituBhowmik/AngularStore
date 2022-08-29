@@ -1,0 +1,18 @@
+<app-menu></app-menu>
+
+<body>
+
+<app-product-card *ngFor="let product of products" [product]="product"  class="grid">
+ </app-product-card>
+
+</body>
+<!--
+#hmenu-canvas {
+  position: fixed;
+  background-color: #fff;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 4px 0 10px 0rgba(0,0,0,.4);
+  will-change: transform;
+}
+-->

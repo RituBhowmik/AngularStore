@@ -1,0 +1,41 @@
+.grid{
+  height: 400px;;
+  width: 250px;
+  background-color: rgb(197, 222, 242);
+  border-color: black;
+  border: 1px;
+  padding: 2%;
+  margin:4px;
+  display: inline-block;
+}
+.display{
+  width: 200px;
+  height:133.33px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar.mat-warn {
+  background: rgb(35, 173, 237);
+  color: #fff;
+}
+span {
+  padding-inline: 10px;
+}
+
+.Link{
+  text-decoration: unset;
+  margin-right: 5px;
+}
+.colorBox{
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0 4px;
+}
+.but{
+  margin: 10px;
+}

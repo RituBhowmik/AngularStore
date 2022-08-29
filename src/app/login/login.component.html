@@ -1,0 +1,65 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content [style.background-color]="'#89CFF0'">
+    <div *ngIf="!(loginService.username$|async)">
+      <form style="padding: 5px">
+        <p>
+          <mat-form-field>
+            <input
+              placeholder="Username"
+              matInput
+              name="name"
+
+              [(ngModel)]="formData.name"
+            />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              name="password"
+
+              [(ngModel)]="formData.loginPass"
+            />
+          </mat-form-field>
+        </p>
+
+        <div class="button">
+          <button
+            type="submit"
+            style="background-color: antiquewhite"
+            mat-button
+            (click)="checkLog()"
+          >
+            Login
+          </button>
+          <button
+            type="submit"
+            style="background-color: antiquewhite"
+            mat-button
+            mat-dialog-close
+          >
+            close
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="!!(loginService.username$|async )">
+      <form style="padding: 5px" >
+      <p>
+        Welcome {{ loginService.username$ | async }}, we are happy to serve you
+      </p>
+      <button type="submit"
+      style="background-color: pink"
+      mat-button mat-dialog-close
+      (click)="logout()"
+      >logout</button>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>
