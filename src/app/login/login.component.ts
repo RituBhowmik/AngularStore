@@ -45,7 +45,7 @@ public status:boolean | undefined;
   }
   ngOnInit(): void {
 
-    if(localStorage.length)
+    if(localStorage['user'])
     {
       //this.loginService.setUsername();
       this.formData.name=this.localStorageService.name;

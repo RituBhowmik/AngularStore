@@ -30,8 +30,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
-
+import { MatSidenavModule} from '@angular/material/sidenav';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -70,6 +70,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     FormsModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatProgressBarModule,
 
 
 

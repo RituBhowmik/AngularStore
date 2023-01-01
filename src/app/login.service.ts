@@ -5,49 +5,58 @@ import { USERS } from 'Users';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { LocalStorageService } from './local-storage.service';
+import { CartService } from './cart.service';
 
 export type loginService$ = {
   username: string;
   state: string;
+  buyLists?: any;
+  cartTotal?: number;
 };
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  public loginStatus$: BehaviorSubject<loginService$> = new BehaviorSubject<loginService$>(
-    {
+  public loginStatus$: BehaviorSubject<loginService$> =
+    new BehaviorSubject<loginService$>({
       username: 'username',
-      state: 'loading'
-  }
-  );
-
+      state: 'loading',
+    });
 
   myUsers: any;
 
-
   public user: any;
-  constructor(public localStorageService: LocalStorageService) {
+  static User: any;
+  constructor(public localStorageService: LocalStorageService,
+    public cartService: CartService) {
     this.myUsers = USERS;
-
   }
   check(name: string, password: string): boolean {
     if (!this.user) {
       this.user = this.myUsers.find((obj: any) => {
-
         return obj.name == name && obj.loginPass == password;
       });
 
       if (this.user) {
-        this.user.loginStatus= 'loggedIn';
+        this.user.loginStatus = 'loggedIn';
+        let buyLists = this.user.buyLists;
+        if (localStorage['buyLists']) {
+          buyLists = localStorage['buyLists'];
+        }
+
         this.loginStatus$.next({
           username: this.user.name,
           state: this.user.loginStatus,
+          buyLists: buyLists
         });
 
-
-        this.localStorageService.save(this.user.name, this.user.password, this.user.loginStatus );
+        this.localStorageService.save(
+          this.user.name,
+          this.user.password,
+          this.user.loginStatus,
+          buyLists
+        );
         this.localStorageService.rememberUser(this.user);
-
       } else {
         alert('Username does not exist');
       }
@@ -55,27 +64,32 @@ export class LoginService {
     return !!this.user;
   }
   setUsername() {
-    console.log(localStorage);
-    if (localStorage.length == 0) {
-
-
-      this.loginStatus$.next( { username:'',
-        state:'notLoggedIn'});
+    if (!localStorage['user']) {
+      this.loginStatus$.next({ username: '', state: 'notLoggedIn' });
     } else {
-
       this.user = JSON.parse(localStorage['user']);
-      this.user.loginStatus= 'loggedIn';
-      this.loginStatus$.next({ username:this.user.name,
-      state:this.user.loginStatus});
+      this.user.loginStatus = 'loggedIn';
+      const buylists = JSON.parse(localStorage['buyLists']);
+      this.loginStatus$.next({
+        username: this.user.name,
+        state: 'loggedIn',
+        buyLists: buylists,
+      }
+      );
+      this.cartService.myCart = buylists;
+      this.cartService.cartLength$.next(buylists.length);
+      this.cartService.getCart();
+
     }
   }
-  logout(){
-    this.user.loginStatus= 'notLoggedIn';
-    this.loginStatus$.next({ username:'',
-    state:'notLoggedIn'});
+  logout() {
+    this.user.loginStatus = 'notLoggedIn';
+    this.loginStatus$.next({ username: '', state: 'notLoggedIn' });
 
-    this.user=null;
+    this.user = null;
+    //localStorage.clear();
+    const buyLists = localStorage['buyLists']
     localStorage.clear();
-
+    localStorage['buyLists'] = buyLists;
   }
 }

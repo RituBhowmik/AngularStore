@@ -3,7 +3,7 @@
   width:300px;
   background-color: rgb(197, 222, 242);
   border-color: black;
-  border-radius: 4%;
+
   border: 1px;
   padding: 1%;
   margin:4px;
@@ -32,5 +32,47 @@ span {
   width:-webkit-fill-available;
   margin:10%
 }
+.align{
+  margin-left:auto;
+margin-right:0;
+}
 
+.checkout{
+  font-size:x-large;
+  font: weight 400px;
+margin:20px;
 
+}
+
+.sidenav, .side {
+  display: flex;
+  height: 100%;
+  align-items: left;
+  overflow:unset;
+  padding: 20px;
+display: inline-block;
+
+}
+.sidenav{
+  background-color: rgb(248, 237, 223);
+  align-items: center;
+}
+.middle{
+  display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+.mat-drawer-inner-container
+{
+  width: 100%;
+    height: 100%;
+    overflow: auto;
+    margin-right: 20px;
+
+}
+.toCenter
+{
+  margin-top: 10%;;
+  margin-left: 35%;
+}

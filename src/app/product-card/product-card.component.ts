@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { WishlistService } from '../wishlist.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-product-card',
@@ -14,7 +15,8 @@ export class ProductCardComponent implements OnInit {
  @Input() product: any;
 
 
- constructor(private cartSetvice:CartService, public wishlistService:WishlistService ,private route: ActivatedRoute, private router: Router) {
+ constructor(
+   public cartSetvice:CartService, public wishlistService:WishlistService ,private route: ActivatedRoute, private router: Router) {
 
  }
 
@@ -22,7 +24,10 @@ export class ProductCardComponent implements OnInit {
   this.wishlistService.addToWishlist(this.product);
  }
   add(): void{
+
     this.cartSetvice.addToCart(this.product, this.product.price);
+
+
       }
 
 

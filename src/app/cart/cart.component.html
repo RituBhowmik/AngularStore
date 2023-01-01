@@ -1,26 +1,53 @@
-
 <app-menu></app-menu>
 
-<body>
-  <div *ngIf="(cartService.cartLength$|async)==0 "><img class=empCart type="image" aria-details="cart is empty" src="../assets/empty-cart.svg">
-  </div>
-  <div *ngIf="(cartService.cartLength$|async)!=0 ">
-<div *ngFor="let buyList of buyLists, let i=index" class="grid">
+<mat-spinner *ngIf="((loginService.loginStatus$| async)?.state == 'loading')" class="toCenter" diameter="300"></mat-spinner>
 
-  <h1>{{ buyList.name }}</h1>
+<div *ngIf="((loginService.loginStatus$| async)?.state != 'loading')">
 
-  <img class="display" type="image" [src]="buyList.imageUrls[0]">
-  <h2 >Price : {{buyList.price}}€ </h2>
-  <h2>Colours : {{buyList.colors[0]}}</h2>
-  <h2 >Size: {{buyList.sizes[0]}}</h2>
+<div *ngIf="!cartService.myCart.length">
 
-
+  <img
+    class="empCart"
+    type="image"
+    aria-details="cart is empty"
+    src="../assets/empty-cart.svg"
+  />
 </div>
-<p class=" checkout">Your cart amounts to {{cartService.cartTotal}}</p>
-<button mat-button class="checkout">Checkout</button>
+<div *ngIf="cartService.myCart.length">
+
+  <mat-drawer-container class="side" style="width: 100%">
+    <mat-drawer mode="side" class="sidenav" opened>
+      <mat-progress-bar style="margin-bottom: 10px"
+          class="example-margin"
+          [color]="color"
+          [mode]="mode"
+          [value]="value"
+          [bufferValue]="bufferValue">
+      </mat-progress-bar>
+
+
+      <div >
+        <h1 class="checkout">Your cart amounts to: <br> <span [style]="'font: weight 400px;'" > {{ cartService.cartTotal}} € </span></h1>
+        <button color="primary"  mat-raised-button style="margin: 20px; "
+     >Checkout</button>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content class="middle">
+
+        <div *ngFor="let buyList of cartService.myCart; let i = index" class="grid">
+          <h1>{{ buyList.name }}</h1>
+
+          <img class="display" type="image" [src]="buyList.imageUrls[0]" />
+          <h2>Price : {{ buyList.price }}€</h2>
+          <h2>Colours : {{ buyList.colors[0] }}</h2>
+          <h2>Size: {{ buyList.sizes[0] }}</h2>
+        </div>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>
-</body>
-<!--
+</div>
+<!---
 #hmenu-canvas {
   position: fixed;
   background-color: #fff;
@@ -29,4 +56,8 @@
   box-shadow: 4px 0 10px 0rgba(0,0,0,.4);
   will-change: transform;
 }
+
+
+to do
+THIS IS NOT GETTING TRIGGERED <<< add to cartService loading from localStorage
 -->

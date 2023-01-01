@@ -20,7 +20,7 @@
   <mat-spinner *ngIf="((loginService.loginStatus$| async)?.state == 'loading')" diameter="20"></mat-spinner>
   <button *ngIf="((loginService.loginStatus$| async)?.state== 'loggedIn') " mat-button>{{(loginService.loginStatus$|async)?.username}}</button>
 
-  <button *ngIf="((loginService.loginStatus$| async)?.state == 'notLoggedIn') " mat-button></button>
+
 
 
 
