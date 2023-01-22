@@ -18,7 +18,7 @@ import { LoginService } from '../login.service';
 })
 export class CartComponent implements OnInit {
   buyLists: any[] = [];
-  products: any[] = [];
+
   empty = true;
   color: ThemePalette = 'primary';
   mode: ProgressBarMode = 'determinate';

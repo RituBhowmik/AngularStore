@@ -5,4 +5,5 @@ export interface users{
   phoneNo ?: number;
   loginStatus: string;
   buyLists: any[];
+
 }

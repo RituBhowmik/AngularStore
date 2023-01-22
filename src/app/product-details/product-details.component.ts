@@ -15,7 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   id: any;
   item: any;
   products: any[] = [];
-  activeColor: Colors | undefined ={
+  activeColor: Colors ={
     name: 'black',
     color: 'black'
   };
@@ -37,7 +37,11 @@ this.activeColor=color;
 
   }
   add(): void{
-    this.cartService.addToCart(this.item, this.item.price);
+    if(this.activeColor?.name== 'black')
+    {alert('Please select the color')}
+    else{
+    this.cartService.addToCart(this.item, this.activeColor);
+    }
       }
 
 }

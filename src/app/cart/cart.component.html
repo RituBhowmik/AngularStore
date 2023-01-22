@@ -1,51 +1,71 @@
 <app-menu></app-menu>
 
-<mat-spinner *ngIf="((loginService.loginStatus$| async)?.state == 'loading')" class="toCenter" diameter="300"></mat-spinner>
+<mat-spinner
+  *ngIf="(loginService.loginStatus$ | async)?.state == 'loading'"
+  class="toCenter"
+  diameter="300"
+></mat-spinner>
 
-<div *ngIf="((loginService.loginStatus$| async)?.state != 'loading')">
-
-<div *ngIf="!cartService.myCart.length">
-
-  <img
-    class="empCart"
-    type="image"
-    aria-details="cart is empty"
-    src="../assets/empty-cart.svg"
-  />
-</div>
-<div *ngIf="cartService.myCart.length">
-
-  <mat-drawer-container class="side" style="width: 100%">
-    <mat-drawer mode="side" class="sidenav" opened>
-      <mat-progress-bar style="margin-bottom: 10px"
+<div *ngIf="(loginService.loginStatus$ | async)?.state != 'loading'">
+  <div *ngIf="!cartService.myCart.length">
+    <h1 style="padding: 0 43% 0 43%">Your cart is empty</h1>
+    <img
+      class="empCart"
+      type="image"
+      aria-details="cart is empty"
+      src="../assets/empty-cart.svg"
+    />
+  </div>
+  <div *ngIf="cartService.myCart.length">
+    <mat-drawer-container class="side" style="width: 100%">
+      <mat-drawer mode="side" class="sidenav" opened>
+        <mat-progress-bar
+          style="margin-bottom: 10px"
           class="example-margin"
           [color]="color"
           [mode]="mode"
           [value]="value"
-          [bufferValue]="bufferValue">
-      </mat-progress-bar>
+          [bufferValue]="bufferValue"
+        >
+        </mat-progress-bar>
+
+        <div>
+          <h1 class="checkout">
+            Your cart amounts to: <br />
+            <span [style]="'font: weight 400px;'">
+              {{ cartService.cartTotal }} €
+            </span>
+          </h1>
+         <a routerLink="/checkout"> <button color="primary" mat-raised-button style="margin: 20px">
+            Checkout
+          </button></a>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content class="middle">
+        <app-product-card
+          *ngFor="let buyList of cartService.myCart"
+          [product]="buyList"
+          class="grid"
+        >
+        </app-product-card>
+        <!--*ngFor="let buyList of cartService.myCart" class="grid">
 
 
-      <div >
-        <h1 class="checkout">Your cart amounts to: <br> <span [style]="'font: weight 400px;'" > {{ cartService.cartTotal}} € </span></h1>
-        <button color="primary"  mat-raised-button style="margin: 20px; "
-     >Checkout</button>
-      </div>
-    </mat-drawer>
-    <mat-drawer-content class="middle">
-
-        <div *ngFor="let buyList of cartService.myCart; let i = index" class="grid">
           <h1>{{ buyList.name }}</h1>
 
           <img class="display" type="image" [src]="buyList.imageUrls[0]" />
           <h2>Price : {{ buyList.price }}€</h2>
-          <h2>Colours : {{ buyList.colors[0] }}</h2>
-          <h2>Size: {{ buyList.sizes[0] }}</h2>
+          <h2>Colours : </h2>
+          <div class="colorBox" *ngFor="let color of buyList.colors" [style]="{backgroundColor:color.color}" > </div>
+
+
+
         </div>
 
-    </mat-drawer-content>
-  </mat-drawer-container>
-</div>
+      -->
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
 </div>
 <!---
 #hmenu-canvas {

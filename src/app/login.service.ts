@@ -12,6 +12,7 @@ export type loginService$ = {
   state: string;
   buyLists?: any;
   cartTotal?: number;
+  orders?: any;
 };
 @Injectable({
   providedIn: 'root',
@@ -40,6 +41,7 @@ export class LoginService {
       if (this.user) {
         this.user.loginStatus = 'loggedIn';
         let buyLists = this.user.buyLists;
+        let orders= this.user.orders;
         if (localStorage['buyLists']) {
           buyLists = localStorage['buyLists'];
         }
@@ -47,7 +49,8 @@ export class LoginService {
         this.loginStatus$.next({
           username: this.user.name,
           state: this.user.loginStatus,
-          buyLists: buyLists
+          buyLists: buyLists,
+          orders: orders,
         });
 
         this.localStorageService.save(
@@ -70,10 +73,12 @@ export class LoginService {
       this.user = JSON.parse(localStorage['user']);
       this.user.loginStatus = 'loggedIn';
       const buylists = JSON.parse(localStorage['buyLists']);
+      const orders = JSON.parse(localStorage['orders']);
       this.loginStatus$.next({
         username: this.user.name,
         state: 'loggedIn',
         buyLists: buylists,
+        orders: orders,
       }
       );
       this.cartService.myCart = buylists;
@@ -91,5 +96,9 @@ export class LoginService {
     const buyLists = localStorage['buyLists']
     localStorage.clear();
     localStorage['buyLists'] = buyLists;
+  }
+  orderComplete(){
+    this.user.order= localStorage['orders'];
+    this.user.buyLists= [];
   }
 }

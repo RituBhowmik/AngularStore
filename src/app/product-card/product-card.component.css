@@ -1,5 +1,5 @@
 .grid{
-  height: 400px;;
+  height: 350px;;
   width: 250px;
   background-color: rgb(197, 222, 242);
   border-color: black;
@@ -17,7 +17,7 @@
   flex: 1 1 auto;
 }
 .mat-toolbar.mat-warn {
-  background: rgb(35, 173, 237);
+  background: rgb(122, 216, 185);
   color: #fff;
 }
 span {

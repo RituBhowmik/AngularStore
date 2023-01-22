@@ -1,0 +1,12 @@
+<h1 style="margin: 0 10% 0 10% ">Here is your order detail</h1>
+
+<app-product-card style="margin-left: 20%"
+*ngFor="let buyList of cartService.myCart"
+[product]="buyList"
+class="grid"
+>
+</app-product-card>
+<h1 style="margin: 0 10% 0 10% ">Please download the page for saving order details</h1>
+<p></p>
+<button mat-raised-button style="margin: 0 10% 0 10% " (click)="orderDone()" >All done!</button>
+

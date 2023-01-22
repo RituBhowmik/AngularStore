@@ -24,8 +24,8 @@ export class ProductCardComponent implements OnInit {
   this.wishlistService.addToWishlist(this.product);
  }
   add(): void{
-
-    this.cartSetvice.addToCart(this.product, this.product.price);
+alert("commented out function")
+    //this.cartSetvice.addToCart(this.product, this.product.price);
 
 
       }

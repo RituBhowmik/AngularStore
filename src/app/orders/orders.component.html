@@ -1,0 +1,8 @@
+<h1>Your order</h1>
+<app-product-card
+*ngFor="let order of loginService.user.order"
+[product]="order"
+class="grid"
+ ></app-product-card>
+
+

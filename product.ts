@@ -1,5 +1,5 @@
 import { Product } from '../store/core/product'
-import { Size } from './core/size';
+
 
 
 
@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.LARGE],
+
   },
   {
     id: 20002,
@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.LARGE],
+
   }, {
     id: 30001,
     name: 'Boys Shirt',
@@ -41,7 +41,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.MEDIUM, Size.LARGE],
+
   },
   {
     id: 30002,
@@ -53,7 +53,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.LARGE],
+
   }, {
     id: 40001,
     name: 'Chair',
@@ -65,7 +65,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.MEDIUM, Size.LARGE],
+
   },
   {
     id: 40002,
@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.LARGE],
+
   },
   {
     id: 10001,
@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.MEDIUM, Size.LARGE],
+
   },
   {
     id: 10002,
@@ -102,7 +102,7 @@ export const PRODUCTS: Product[] = [
       { name: 'lettuce', color: '#80DC0B' },
       { name: 'cherry', color: '#E91E63' },
     ],
-    sizes: [Size.SMALL, Size.LARGE],
+
   },
 
 ];

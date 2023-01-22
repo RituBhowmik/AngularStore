@@ -10,10 +10,12 @@
   <img class="display" type="image" [src]="wish.imageUrls[0]">
   <h2>Price : {{wish.price}}€ </h2>
   <h2>Colours : {{wish.colors[0]}}</h2>
-  <h2>Size: {{wish.sizes[0]}}</h2>
+
+  <a class="Link" routerLink="/product-details/{{wish.id}}"><button color="primary"  mat-raised-button>view</button></a>
+  <!--
 	<button color="primary" [disabled]= 'disable' mat-raised-button (click)="add(wish)">Add to cart<mat-icon>add_shopping_cart</mat-icon></button>
 	<button color="warn" *ngIf="disable" mat-raised-button > Added to cart</button>
-
+  -->
 
 </div>
 </body>

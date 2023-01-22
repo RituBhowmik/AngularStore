@@ -7,12 +7,13 @@
   <h2>Price : {{product.price}}€ </h2><h2>Color : </h2>
   <div class="colorBox" *ngFor="let color of product.colors" [style]="{backgroundColor:color.color}" > </div>
 
-  <h2>Size: {{product.sizes[0]}} {{product.sizes[1]}} {{product.sizes[2]}}</h2>
+
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="addWishlist()">
     <mat-icon>favorite</mat-icon></button>
   <a class="Link" routerLink="/product-details/{{product.id}}"><button color="primary"  mat-raised-button>view</button></a>
-
+<!--
 	<button color="primary"  mat-raised-button (click)="add()">Add to cart<mat-icon>add_shopping_cart</mat-icon></button>
+-->
 </div>
 <!--[style.backgroundColor]="color.color"-->
 

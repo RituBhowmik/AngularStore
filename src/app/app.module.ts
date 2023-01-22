@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatStepperModule} from '@angular/material/stepper';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,12 +26,17 @@ import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ConfirmPaymentDialog } from './payment/payment.component';
+import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.component';
+import { OrdersComponent } from './orders/orders.component';
+
 
 
 
@@ -51,6 +56,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ProductDetailsComponent,
     LoginComponent,
     WishlistComponent,
+    CheckoutComponent,
+    ConfirmPaymentDialog,
+    OrderConfirmedComponent,
+    OrdersComponent,
+
 
 
   ],
@@ -72,6 +82,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatProgressBarModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
 
 
 
@@ -87,6 +100,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
       { path: 'product-details/:id', component: ProductDetailsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'wishlist', component: WishlistComponent },
+      { path: 'checkout', component: CheckoutComponent},
+      { path: 'orders', component: OrdersComponent},
+      { path: 'orderConfirmed', component: OrderConfirmedComponent}
     ]),
     MatGridListModule,
   ],

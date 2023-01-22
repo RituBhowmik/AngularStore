@@ -11,6 +11,7 @@ export class LocalStorageService {
   public loginStatus = '';
   public buyLists: any[] = [];
 
+
   constructor() {}
   save(
     name: string,
@@ -47,5 +48,11 @@ export class LocalStorageService {
 
   get getBuylists() {
     return localStorage['buyLists'][localStorage['user'].name]
+  }
+  orderComplete()
+  { //const order:any[]= [];
+    //order.push(this.buyLists);
+    //localStorage['orders']= JSON.stringify(order)
+    localStorage['buyLists'] = [];
   }
 }

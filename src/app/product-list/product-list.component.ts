@@ -18,7 +18,8 @@ export class ProductListComponent implements OnInit {
 
   products: any[]=[];
   constructor(private http:HttpClient, private cartSetvice:CartService ) {}
-  configUrl = 'https://mocki.io/v1/788f3455-d7fe-4125-979a-d23846c03d3b';
+  configUrl = 'https://mocki.io/v1/5c6f970e-f573-41d5-91b3-378ad810081e';
+
 
   getConfig() {
     return this.http.get(this.configUrl);

@@ -30,19 +30,13 @@ span {
 }
 .empCart{
   width:-webkit-fill-available;
-  margin:10%
+  margin: 0 30% 0 30%;
 }
 .align{
   margin-left:auto;
 margin-right:0;
 }
 
-.checkout{
-  font-size:x-large;
-  font: weight 400px;
-margin:20px;
-
-}
 
 .sidenav, .side {
   display: flex;
@@ -75,4 +69,12 @@ display: inline-block;
 {
   margin-top: 10%;;
   margin-left: 35%;
+}
+.colorBox{
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0 4px;
 }

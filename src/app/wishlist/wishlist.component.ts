@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
+import { Colors } from 'core/colors';
 import { CartService } from '../cart.service';
 import { WishlistService } from '../wishlist.service';
 
@@ -18,8 +19,8 @@ export class WishlistComponent implements OnInit {
   ngOnInit(): void {
    this.wishlist=this.wishService.getWishlist();
   }
-  add(obj:any){
-    this.cartService.addToCart(obj, obj.price);
-    this.disable=!this.disable;
-  }
+  //add(obj:any){
+    //this.cartService.addToCart(obj, obj.prices, obj.);
+    //this.disable=!this.disable;
+  //}
 }

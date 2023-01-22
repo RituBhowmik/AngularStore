@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Colors } from 'core/colors';
 import { Product } from 'core/product';
 import { PRODUCTS } from 'product';
 import { BehaviorSubject, observable, Observable, Subject } from 'rxjs';
@@ -12,6 +13,7 @@ export class CartService {
   myCart: any[] = [];
   obj: any;
   public cartLength$: BehaviorSubject<number> = new BehaviorSubject(0);
+  item: Product | undefined;
 
   constructor(public localStorageService: LocalStorageService,
  ) {}
@@ -25,16 +27,21 @@ export class CartService {
     return total;
   }
 
-  addToCart(item: string, price: any) {
-
+  addToCart(item: Product, color: Colors) {
+    item.colors = [color];
+    console.log(item);
     alert('Item added to cart');
 
     this.myCart.push(item);
+    console.log(this.myCart)
 
     //this.myCart= this.myCart.map(JSON.parse(item));  newObject = myObject.map(function (value, label) {
     //   return value * value;
     //});
     //console.log(this.myCart)
+
+
+
 
 
     this.localStorageService.rememberList(this.myCart);
@@ -46,5 +53,10 @@ export class CartService {
   getCart() {
 
     return this.myCart;
+  }
+  orderComplete()
+  {
+    this.myCart= [];
+    this.cartLength$.next(this.myCart.length);
   }
 }

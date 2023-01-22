@@ -1,4 +1,4 @@
-import {Size} from "./size"
+
 import {Colors} from './colors'
 export interface Product {
   id: number;
@@ -6,5 +6,5 @@ export interface Product {
   imageUrls: string[];
   price: number;
   colors: Colors[];
-  sizes: Size[];
+
 }
