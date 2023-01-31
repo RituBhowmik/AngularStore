@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card appearance="outlined">
   <mat-card-title>Login</mat-card-title>
   <mat-card-content [style.background-color]="'#89CFF0'">
     <div *ngIf="((loginService.loginStatus$| async)?.state == 'notLoggedIn') ">

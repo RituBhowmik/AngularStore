@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { PRODUCTS } from 'product';
 import { CartService } from 'src/app/cart.service';
 import { Product } from 'core/product';
-import { LegacyProgressBarMode as ProgressBarMode } from '@angular/material/legacy-progress-bar';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 import { ThemePalette } from '@angular/material/core';
 import { LocalStorageService } from '../local-storage.service';
 import { LoginService } from '../login.service';

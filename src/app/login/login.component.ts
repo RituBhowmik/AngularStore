@@ -1,6 +1,6 @@
 import { outputAst, ThisReceiver } from '@angular/compiler';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 import { USERS } from 'Users';
 import { LocalStorageService } from '../local-storage.service';
