@@ -9,5 +9,5 @@
   <div  class="colorBox" *ngFor="let color of item.colors" [style]="{backgroundColor:color.color}" (click)="changeColor(color)"> </div>
 
 
-	<button routerLink="/cart" color="primary"  mat-raised-button (click)="add()">Add to cart<mat-icon>add_shopping_cart</mat-icon></button>
+	<button color="primary"  mat-raised-button (click)="add()">Add to cart<mat-icon>add_shopping_cart</mat-icon></button>
 </div>

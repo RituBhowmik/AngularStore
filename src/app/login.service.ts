@@ -12,7 +12,7 @@ export type loginService$ = {
   state: string;
   buyLists?: any;
   cartTotal?: number;
-  orders?: any;
+  orders?: any[];
 };
 @Injectable({
   providedIn: 'root',
@@ -44,6 +44,9 @@ export class LoginService {
         let orders= this.user.orders;
         if (localStorage['buyLists']) {
           buyLists = localStorage['buyLists'];
+        }
+        if (localStorage['orders']){
+          orders = localStorage['orders'];
         }
 
         this.loginStatus$.next({

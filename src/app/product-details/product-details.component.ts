@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { PRODUCTS } from 'product';
 import { Colors } from 'core/colors';
 import { CartService } from 'src/app/cart.service';
@@ -21,7 +21,7 @@ export class ProductDetailsComponent implements OnInit {
   };
 
 
-  constructor(private cartService:CartService,private router: ActivatedRoute) {
+  constructor(private cartService:CartService,private router: ActivatedRoute, private route: Router) {
     this.id = this.router.snapshot.params['id'];
 
   }
@@ -41,6 +41,7 @@ this.activeColor=color;
     {alert('Please select the color')}
     else{
     this.cartService.addToCart(this.item, this.activeColor);
+   this.route.navigate(['/cart'])
     }
       }
 
