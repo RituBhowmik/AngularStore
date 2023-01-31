@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, _closeDialogVia } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog, _closeLegacyDialogVia as _closeDialogVia } from '@angular/material/legacy-dialog';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { USERS } from 'Users';
 import { LoginComponent } from './login/login.component';

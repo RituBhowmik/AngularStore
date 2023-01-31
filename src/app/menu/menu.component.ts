@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { CartService } from 'src/app/cart.service';
 import { LoginComponent } from '../login/login.component';
 import { LoginService } from '../login.service';
