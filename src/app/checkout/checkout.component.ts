@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { CartService } from '../cart.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { ConfirmPaymentDialog } from '../payment/payment.component';
@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
   });
   isLinear = false;
 
-  constructor(private _formBuilder: FormBuilder,  public cartService: CartService, public dialog: MatDialog, private router: Router) { }
+  constructor(private _formBuilder: UntypedFormBuilder,  public cartService: CartService, public dialog: MatDialog, private router: Router) { }
   name = '';
   address = '';
   ngOnInit(): void {
