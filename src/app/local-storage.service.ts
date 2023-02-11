@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { USERS } from 'Users';
-import { LoginService } from './login.service';
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +7,7 @@ import { LoginService } from './login.service';
 export class LocalStorageService {
   public name = '';
   public password = '';
-  public loginStatus = '';
+
   public buyLists: any[] = [];
 
 
@@ -16,12 +15,12 @@ export class LocalStorageService {
   save(
     name: string,
     password: string,
-    loginStatus: boolean,
+
     buyLists: any[]
   ): void {
     localStorage['user'] = name;
     localStorage['password'] = password;
-    localStorage['loginStatus'] = loginStatus;
+
     localStorage['buyLists'] = buyLists;
   }
   rememberUser(user: any) {
@@ -53,6 +52,7 @@ export class LocalStorageService {
   { //const order:any[]= [];
     //order.push(this.buyLists);
     //localStorage['orders']= JSON.stringify(order)
-    localStorage['buyLists'] = [];
+
+    localStorage['buyLists'] = '';
   }
 }

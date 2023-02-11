@@ -35,7 +35,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ConfirmPaymentDialog } from './payment/payment.component';
 import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.component';
-import { OrdersComponent } from './orders/orders.component';
+
 
 
 
@@ -59,7 +59,7 @@ import { OrdersComponent } from './orders/orders.component';
     CheckoutComponent,
     ConfirmPaymentDialog,
     OrderConfirmedComponent,
-    OrdersComponent,
+
 
 
 
@@ -101,7 +101,7 @@ import { OrdersComponent } from './orders/orders.component';
       { path: 'login', component: LoginComponent },
       { path: 'wishlist', component: WishlistComponent },
       { path: 'checkout', component: CheckoutComponent},
-      { path: 'orders', component: OrdersComponent},
+
       { path: 'orderConfirmed', component: OrderConfirmedComponent}
     ]),
     MatGridListModule,

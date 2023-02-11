@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, _closeDialogVia } from '@angular/material/dialog';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { _closeDialogVia } from '@angular/material/dialog';
+import { BehaviorSubject } from 'rxjs';
 import { USERS } from 'Users';
-import { LoginComponent } from './login/login.component';
-import { MenuComponent } from './menu/menu.component';
+
 import { LocalStorageService } from './local-storage.service';
 import { CartService } from './cart.service';
+import { Router } from '@angular/router';
 
 export type loginService$ = {
   username: string;
   state: string;
   buyLists?: any;
   cartTotal?: number;
-  orders?: any[];
 };
 @Injectable({
   providedIn: 'root',
@@ -27,9 +26,12 @@ export class LoginService {
   myUsers: any;
 
   public user: any;
-  static User: any;
-  constructor(public localStorageService: LocalStorageService,
-    public cartService: CartService) {
+
+  constructor(
+    public localStorageService: LocalStorageService,
+    public cartService: CartService,
+    private router:Router
+  ) {
     this.myUsers = USERS;
   }
   check(name: string, password: string): boolean {
@@ -39,27 +41,23 @@ export class LoginService {
       });
 
       if (this.user) {
-        this.user.loginStatus = 'loggedIn';
+
         let buyLists = this.user.buyLists;
-        let orders= this.user.orders;
+
         if (localStorage['buyLists']) {
           buyLists = localStorage['buyLists'];
-        }
-        if (localStorage['orders']){
-          orders = localStorage['orders'];
         }
 
         this.loginStatus$.next({
           username: this.user.name,
-          state: this.user.loginStatus,
+          state: 'loggedIn',
           buyLists: buyLists,
-          orders: orders,
         });
 
         this.localStorageService.save(
           this.user.name,
           this.user.password,
-          this.user.loginStatus,
+
           buyLists
         );
         this.localStorageService.rememberUser(this.user);
@@ -70,38 +68,46 @@ export class LoginService {
     return !!this.user;
   }
   setUsername() {
+    //when there is no user logged in before
     if (!localStorage['user']) {
       this.loginStatus$.next({ username: '', state: 'notLoggedIn' });
-    } else {
+    }
+    //when there is a user who logged in before
+    else {
       this.user = JSON.parse(localStorage['user']);
-      this.user.loginStatus = 'loggedIn';
-      const buylists = JSON.parse(localStorage['buyLists']);
-      const orders = JSON.parse(localStorage['orders']);
-      this.loginStatus$.next({
-        username: this.user.name,
-        state: 'loggedIn',
-        buyLists: buylists,
-        orders: orders,
-      }
-      );
-      this.cartService.myCart = buylists;
-      this.cartService.cartLength$.next(buylists.length);
-      this.cartService.getCart();
 
+
+      let tempBuyList: any[] = [];
+      //if there were items in cart before
+      if (localStorage['buyLists']) {
+        tempBuyList = JSON.parse(localStorage['buyLists']);
+      }
+
+      this.loginStatus$.next({
+        username: this.user.name, // gets displayed in menu bar
+        state: 'loggedIn',
+        buyLists: tempBuyList,
+      });
+      // adjusts cart according to user logged
+      this.cartService.myCart = tempBuyList;
+      this.cartService.cartLength();
+      this.cartService.getCart();
     }
   }
   logout() {
-    this.user.loginStatus = 'notLoggedIn';
+
     this.loginStatus$.next({ username: '', state: 'notLoggedIn' });
 
     this.user = null;
     //localStorage.clear();
-    const buyLists = localStorage['buyLists']
+    const buyLists = localStorage['buyLists'];
     localStorage.clear();
     localStorage['buyLists'] = buyLists;
+    this.cartService.orderComplete();
+    this.router.navigate(['/']);
+
   }
-  orderComplete(){
-    this.user.order= localStorage['orders'];
-    this.user.buyLists= [];
+  orderComplete() {
+    this.user.buyLists = [];
   }
 }

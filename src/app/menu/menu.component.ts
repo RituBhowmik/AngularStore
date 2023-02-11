@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CartService } from 'src/app/cart.service';
 import { LoginComponent } from '../login/login.component';
 import { LoginService } from '../login.service';
-import { async, BehaviorSubject } from 'rxjs';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -23,7 +23,6 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.loginService.getUsername();
     setTimeout(() => {
       this.loginService.setUsername();
     }, 2000);
