@@ -14,9 +14,7 @@
   margin-left: 10px;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
-}
+
 .heading{
   font-size: xxx-large;
 
@@ -24,7 +22,7 @@
 }
 
 
-.Link{
+a{
   text-decoration: unset;
 }
 .colorBox{

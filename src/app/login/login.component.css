@@ -6,11 +6,17 @@
   max-width: fit-content;
 }
 
-
-
-.button {
-  display: flex;
-  justify-content: flex-end;
-
+mat-card-title {
+  margin: 0 10px;
 }
 
+
+.loginButton{
+  background-color: antiquewhite;
+  margin: 0 10px;
+}
+
+
+form {
+  padding: 40px 30px;
+}

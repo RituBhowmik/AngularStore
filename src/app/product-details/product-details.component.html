@@ -1,13 +1,24 @@
-<app-menu></app-menu>
 <div class="grid">
-
-  <img [style.borderColor]="activeColor.color" class="display" type="image" [src]="item.imageUrls[0]">
+  <img
+    [style.borderColor]="activeColor.color"
+    class="display"
+    type="image"
+    [src]="item.imageUrls[0]"
+  />
 </div>
 <div class="grid">
-  <h1 class="heading">{{item.name }}</h1>
- <h2>Price : {{item.price}}€ </h2><h2>Color : </h2>
-  <div  class="colorBox" *ngFor="let color of item.colors" [style]="{backgroundColor:color.color}" (click)="changeColor(color)"> </div>
+  <h1 class="heading">{{ item.name }}</h1>
+  <h2>Price : {{ item.price }}€</h2>
+  <h2>Color :
+  <div
+    class="colorBox"
+    *ngFor="let color of item.colors"
+    [style]="{ backgroundColor: color.color }"
+    (click)="changeColor(color)"
+  ></div>
+</h2>
 
-
-	<button color="primary"  mat-raised-button (click)="add()">Add to cart<mat-icon>add_shopping_cart</mat-icon></button>
+  <button color="primary" mat-raised-button (click)="add()">
+    Add to cart<mat-icon>add_shopping_cart</mat-icon>
+  </button>
 </div>

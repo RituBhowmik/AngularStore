@@ -11,6 +11,10 @@ span {
   padding-inline: 10px;
 }
 
-.Link{
+a{
   text-decoration: unset;
+}
+
+.github-link {
+  color: white;
 }

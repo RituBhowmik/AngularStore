@@ -13,18 +13,8 @@
   height:133.33px;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
-}
-.mat-toolbar.mat-warn {
-  background: rgb(122, 216, 185);
-  color: #fff;
-}
-span {
-  padding-inline: 10px;
-}
 
-.Link{
+a{
   text-decoration: unset;
   margin-right: 5px;
 }
@@ -36,6 +26,4 @@ span {
   display: inline-block;
   margin: 0 4px;
 }
-.but{
-  margin: 10px;
-}
+

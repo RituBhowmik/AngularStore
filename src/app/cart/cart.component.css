@@ -9,28 +9,16 @@
   margin:4px;
   display: inline-block;
 }
-.display{
-  width: 200px;
-  height:133.33px;
-}
 
-.example-spacer {
-  flex: 1 1 auto;
-}
 .mat-toolbar.mat-warn {
   background: rgb(35, 173, 237);
   color: #fff;
 }
-span {
-  padding-inline: 10px;
-}
-
-.Link{
+a{
   text-decoration: unset;
 }
 .empCart{
-  width:-webkit-fill-available;
-  margin: 0 30% 0 30%;
+  margin: 5% 30% 0%;
 }
 .align{
   margin-left:auto;
@@ -46,6 +34,9 @@ margin-right:0;
   padding: 20px;
 display: inline-block;
 
+}
+.side{
+  width: 100%;
 }
 .sidenav{
   background-color: rgb(248, 237, 223);
@@ -77,4 +68,14 @@ display: inline-block;
   border: 1px solid black;
   display: inline-block;
   margin: 0 4px;
+}
+.empCartText{
+  text-align: center;
+}
+.checkoutButton{
+margin: 20px;
+}
+.span{
+font: weight 400px;
+padding-inline: 10px;
 }

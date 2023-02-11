@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { PRODUCTS } from 'product';
 import { Colors } from 'core/colors';
 import { CartService } from 'src/app/cart.service';
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -21,7 +22,7 @@ export class ProductDetailsComponent implements OnInit {
   };
 
 
-  constructor(private cartService:CartService,private router: ActivatedRoute, private route: Router) {
+  constructor(private cartService:CartService,  private router: ActivatedRoute, private route: Router) {
     this.id = this.router.snapshot.params['id'];
 
   }
@@ -36,9 +37,10 @@ export class ProductDetailsComponent implements OnInit {
 this.activeColor=color;
 
   }
+
   add(): void{
     if(this.activeColor?.name== 'black')
-    {alert('Please select the color')}
+    {alert('Please select a color')}
     else{
     this.cartService.addToCart(this.item, this.activeColor);
    this.route.navigate(['/cart'])

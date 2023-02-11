@@ -2,7 +2,7 @@
   <mat-card-title class="login">Login</mat-card-title>
   <mat-card-content [style.background-color]="'#89CFF0'">
     <div *ngIf="((loginService.loginStatus$| async)?.state == 'notLoggedIn') ">
-      <form style="padding: 5px">
+      <form>
         <p>
           <mat-form-field> Username
             <input
@@ -28,10 +28,10 @@
           </mat-form-field>
         </p>
 
-        <div class="button">
+        <div >
           <button
             type="submit"
-            style="background-color: antiquewhite"
+            class="loginButton"
             mat-button
             (click)="checkLog()"
           >
@@ -39,7 +39,7 @@
           </button>
           <button
             type="submit"
-            style="background-color: antiquewhite"
+            class="loginButton"
             mat-button
             mat-dialog-close
           >
@@ -50,12 +50,12 @@
     </div>
 
     <div *ngIf="((loginService.loginStatus$| async)?.state == 'loggedIn') ">
-      <form style="padding: 5px" >
+      <form  >
       <p>
         Welcome {{ (loginService.loginStatus$ | async)?.username }}, we are happy to serve you
       </p>
       <button type="submit"
-      style="background-color: pink"
+      class="loginButton"
       mat-button mat-dialog-close
       (click)="logout()"
       >logout</button>

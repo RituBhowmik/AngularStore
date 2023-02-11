@@ -1,17 +1,6 @@
-.example-spacer {
-  flex: 1 1 auto;
-}
-.mat-toolbar.mat-warn {
-  background: darkorange;
-  color: #fff;
-}
-span {
-  padding-inline: 10px;
-}
+
 .img{
-  width:-webkit-fill-available;
+  width:100%;
 
 }
-.Link{
-  text-decoration: unset;
-}
+

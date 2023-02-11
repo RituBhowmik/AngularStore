@@ -5,3 +5,13 @@
 .mat-mdc-form-field {
   margin-top: 16px;
 }
+h1{
+margin-left: 10%;
+max-width: 80%
+}
+mat-stepper{
+margin-left: 10%
+}
+.leftAlign{
+ margin-left: 10%
+}

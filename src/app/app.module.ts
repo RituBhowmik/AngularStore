@@ -28,7 +28,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { WishlistComponent } from './wishlist/wishlist.component';
+
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -55,7 +55,7 @@ import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.compo
     ProductCardComponent,
     ProductDetailsComponent,
     LoginComponent,
-    WishlistComponent,
+
     CheckoutComponent,
     ConfirmPaymentDialog,
     OrderConfirmedComponent,
@@ -99,7 +99,7 @@ import { OrderConfirmedComponent } from './order-confirmed/order-confirmed.compo
       { path: 'product-list', component: ProductListComponent },
       { path: 'product-details/:id', component: ProductDetailsComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'wishlist', component: WishlistComponent },
+
       { path: 'checkout', component: CheckoutComponent},
 
       { path: 'orderConfirmed', component: OrderConfirmedComponent}

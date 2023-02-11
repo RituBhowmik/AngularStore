@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { WishlistService } from '../wishlist.service';
+
 import { LoginService } from '../login.service';
 
 @Component({
@@ -16,19 +16,11 @@ export class ProductCardComponent implements OnInit {
 
 
  constructor(
-   public cartSetvice:CartService, public wishlistService:WishlistService ,private route: ActivatedRoute, private router: Router) {
+   public cartSetvice:CartService, private route: ActivatedRoute, private router: Router) {
 
  }
 
- addWishlist(){
-  this.wishlistService.addToWishlist(this.product);
- }
-  add(): void{
-alert("commented out function")
-    //this.cartSetvice.addToCart(this.product, this.product.price);
 
-
-      }
 
 
   ngOnInit(): void {
