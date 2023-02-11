@@ -3,7 +3,7 @@
   *ngIf="(loginService.loginStatus$ | async)?.state == 'loading'"
   class="toCenter"
   diameter="300"
-></mat-spinner>
+/>
 
 <div *ngIf="(loginService.loginStatus$ | async)?.state != 'loading'">
   <div *ngIf="!cartService.myCart.length">
@@ -38,8 +38,8 @@
           *ngFor="let buyList of cartService.myCart"
           [product]="buyList"
           class="grid"
-        >
-        </app-product-card>
+        />
+
 
       </mat-drawer-content>
     </mat-drawer-container>

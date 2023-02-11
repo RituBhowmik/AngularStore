@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { PRODUCTS } from 'product';
 import { Colors } from 'core/colors';

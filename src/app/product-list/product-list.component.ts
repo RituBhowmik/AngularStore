@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { PRODUCTS } from 'product';
 import { CartService } from 'src/app/cart.service';
-import { Product } from 'core/product';
+
 
 @Component({
   selector: 'app-product-list',

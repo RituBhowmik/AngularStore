@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
-import { CheckoutComponent } from '../checkout/checkout.component';
 import { LocalStorageService } from '../local-storage.service';
 import { LoginService } from '../login.service';
 

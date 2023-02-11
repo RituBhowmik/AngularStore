@@ -1,8 +1,6 @@
-import { outputAst, ThisReceiver } from '@angular/compiler';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 
-import { USERS } from 'Users';
+import { Component, OnInit} from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { LocalStorageService } from '../local-storage.service';
 import { LoginService } from '../login.service';
 
