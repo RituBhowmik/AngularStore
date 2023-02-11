@@ -1,31 +1,62 @@
 <mat-toolbar color="warn">
-  <button mat-button [matMenuTriggerFor]="menu" ><mat-icon>menu</mat-icon></button>
-<mat-menu #menu="matMenu">
-  <a routerLink="/product-list" class="Link"><button mat-menu-item >All items</button></a>
-  <button mat-menu-item [matMenuTriggerFor]="Categories">Categories</button>
-  <a><button mat-menu-item >Shopping cart</button></a>
-  <a class="Link" routerLink="../wishlist"><button mat-menu-item >Wishlist</button></a>
-  <a routerLink="/orders" class="Link"><button mat-menu-item >orders</button></a>
-  <a routerLink="" class="Link"><button mat-menu-item >Home Page</button></a>
-</mat-menu>
-<mat-menu #Categories="matMenu">
-  <a routerLink="../his" class="Link"><button mat-menu-item>His Fashion</button></a>
-  <a routerLink="../her" class="Link"><button mat-menu-item>Her Fashion</button></a>
-  <a routerLink="../kids" class="Link"><button mat-menu-item>Kids Fashion</button></a>
-  <a routerLink="../homeStore" class="Link"><button mat-menu-item>Home Items</button></a>
-</mat-menu>
-  <span>Welcome to Fashion</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button (click)="openDialog()" ><mat-icon>person</mat-icon></button>
-  <mat-spinner *ngIf="((loginService.loginStatus$| async)?.state == 'loading')" diameter="20"></mat-spinner>
-  <button *ngIf="((loginService.loginStatus$| async)?.state== 'loggedIn') " mat-button>{{(loginService.loginStatus$|async)?.username}}</button>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <a routerLink="/product-list" class="Link"
+      ><button mat-menu-item>All items</button></a
+    >
+    <button mat-menu-item [matMenuTriggerFor]="Categories">Categories</button>
+    <a><button mat-menu-item>Shopping cart</button></a>
+    <a class="Link" routerLink="../wishlist"
+      ><button mat-menu-item>Wishlist</button></a
+    >
 
-  <button mat-icon-button class="example-icon" aria-label="share icon">
+    <a routerLink="" class="Link"><button mat-menu-item>Home Page</button></a>
+  </mat-menu>
+  <mat-menu #Categories="matMenu">
+    <a routerLink="../his" class="Link"
+      ><button mat-menu-item>His Fashion</button></a
+    >
+    <a routerLink="../her" class="Link"
+      ><button mat-menu-item>Her Fashion</button></a
+    >
+    <a routerLink="../kids" class="Link"
+      ><button mat-menu-item>Kids Fashion</button></a
+    >
+    <a routerLink="../homeStore" class="Link"
+      ><button mat-menu-item>Home Items</button></a
+    >
+  </mat-menu>
+  <span>Welcome to Fashion</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="openDialog()">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-spinner
+    *ngIf="(loginService.loginStatus$ | async)?.state == 'loading'"
+    diameter="20"
+  ></mat-spinner>
+  <button
+    *ngIf="(loginService.loginStatus$ | async)?.state == 'loggedIn'"
+    mat-button
+  >
+    {{ (loginService.loginStatus$ | async)?.username }}
+  </button>
+
+  <button mat-icon-button aria-label="share icon">
     <mat-icon>share</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="wishlist icon" routerLink="/wishlist"><mat-icon >favorite</mat-icon></button>
-  <a routerLink="/cart"><button color="warn"  mat-mini-fab ><mat-icon [matBadge]="CartService.cartLength$| async" matBadgeOverlap="false">shopping_cart</mat-icon> </button></a>
-
+  <button mat-icon-button aria-label="wishlist icon" routerLink="/wishlist">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <a routerLink="/cart" style="text-decoration: none"
+    ><button color="warn" mat-mini-fab>
+      <mat-icon
+        [matBadge]="CartService.cartLength$ | async"
+        matBadgeOverlap="false"
+        >shopping_cart</mat-icon
+      >
+    </button></a
+  >
 </mat-toolbar>
-
-

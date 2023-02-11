@@ -40,16 +40,14 @@ export class CartService {
     //});
     //console.log(this.myCart)
 
-
-
-
-
     this.localStorageService.rememberList(this.myCart);
     //this.getCart();
-    this.cartLength$.next(this.myCart.length);
 
+this.cartLength();
   }
-
+cartLength(){
+  this.cartLength$.next(this.myCart.length);
+}
   getCart() {
 
     return this.myCart;
